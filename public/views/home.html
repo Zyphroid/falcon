@@ -1,0 +1,32 @@
+<style>
+
+
+</style>
+
+<div class="jumbotron text-center">
+	<h1>Home Page 4 Life</h1>
+    <a href="/create">Add</a>
+
+
+
+</div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-md-3" ng-repeat="product in products">
+
+                    <div class="thumbnail">
+                    <img ng-src="{{product.content.media.url}}" class="imgClass"/>
+                        <div class="caption">
+                            <h4 class="pull-right">{{product.scheduled}}</h4>
+                            <h4>
+                                <a href="#">Edit</a>
+                                <a href="#">Delete</a>
+                            </h4>
+                            <p>{{product.content.message}}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
