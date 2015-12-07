@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
+    status : {type: String, default: ''},
     name : {type : String, default: ''},
     scheduled: {type: String, default: ''},
     content: {
