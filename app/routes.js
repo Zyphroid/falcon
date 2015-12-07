@@ -8,7 +8,7 @@ module.exports = function(app) {
 	// handle things like api calls
 	// authentication routes
 
-    app.delete('app/')
+
 
     app.post('/api/v1/product', function(req, res) {
             //Create object
@@ -142,6 +142,25 @@ module.exports = function(app) {
 	app.get('*', function(req, res) {
 		res.sendfile('./public/index.html');
 	});
+
+    // delete the product with this id (accessed at DELETE http://localhost:8080/api/bears/:bear_id)
+    app.delete('/api/v1/product/:_id', function(req, res) {
+        Product.remove({
+            _id: req.params._id
+        }, function(err, bear) {
+            if (err)
+                res.send(err);
+
+
+            //Update the page after delete
+            Product.find({}, function(err, products) {
+                if (err) throw err;
+
+                // object of all the users
+                return res.json(products);
+            });
+        });
+    });
 
 
 };

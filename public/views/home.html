@@ -14,19 +14,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-6 col-md-3" ng-repeat="product in products">
-
+                    <div id="{{product._id}}"></div>
                     <div class="thumbnail">
                     <img ng-src="{{product.content.media.url}}" class="imgClass"/>
                         <div class="caption">
                             <h4 class="pull-right">{{product.scheduled}}</h4>
                             <h4>
                                 <a href="#">Edit</a>
-                                <a href="#">Delete</a>
+                                <a ng-click="deleteProduct(product._id);">Delete</a>
                             </h4>
                             <p>{{product.status}}</p>
                         </div>
                     </div>
 
                 </div>
+
             </div>
         </div>
