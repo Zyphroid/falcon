@@ -37,7 +37,7 @@ exports = module.exports = app; 						// expose app
 
 
 
-//just for adding the products from json url to database
+//just for adding the products from json url to database; might as well be in a different file!
 var Product     = require('./app/models/Product');
 
 

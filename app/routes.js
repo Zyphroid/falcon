@@ -48,7 +48,7 @@ module.exports = function(app) {
     app.delete('/api/v1/product/:_id', function(req, res) {
         Product.remove({
             _id: req.params._id
-        }, function(err, bear) {
+        }, function(err, product) {
             if (err)
                 res.send(err);
 
@@ -72,7 +72,7 @@ module.exports = function(app) {
             if (err)
                 res.send(err);
 
-            product.status = req.body.status;  // set the product name (comes from the request)
+            product.status = req.body.status;
             product.content.media.url = req.body.content.media.url;
             product.scheduled = req.body.scheduled;
 
