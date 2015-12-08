@@ -18,7 +18,7 @@ angular.module('MainCtrl', []).controller('MainController', ['$scope', '$http', 
             // this callback will be called asynchronously
             // when the response is available
 
-            //after delete then update the page without refreshing
+            // update the page without refreshing
             $scope.products = response.data;
             $scope.loading = false;
 
@@ -26,7 +26,7 @@ angular.module('MainCtrl', []).controller('MainController', ['$scope', '$http', 
             // called asynchronously if an error occurs
             // or server returns response with an error status.
 
-            //after delete then update the page without refreshing
+            // update the page without refreshing
             $scope.products = response.data;
             $scope.loading = false;
             $scope.error = true;
@@ -41,7 +41,7 @@ angular.module('MainCtrl', []).controller('MainController', ['$scope', '$http', 
             // this callback will be called asynchronously
             // when the response is available
 
-            //after delete then update the page without refreshing
+            // update the page without refreshing
             $scope.products = response.data;
             $scope.loading = false;
         }, function errorCallback(response) {
@@ -49,7 +49,7 @@ angular.module('MainCtrl', []).controller('MainController', ['$scope', '$http', 
             // or server returns response with an error status.
 
 
-            //after delete then update the page without refreshing
+            //update the page without refreshing
             $scope.products = response.data;
             $scope.loading = false;
             $scope.error = true;
