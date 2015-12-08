@@ -67,6 +67,6 @@ angular.module('MainCtrl', []).controller('MainController', ['$scope', '$http', 
             .then(function(response) {$scope.products = response.data;})
     )};
     $http.get("/api/v1/products")
-        .then(function(response) {console.log(response.data);$scope.products = response.data;});
+        .then(function(response) {$scope.products = response.data;});
 
 }]);

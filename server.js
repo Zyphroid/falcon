@@ -8,7 +8,6 @@ var methodOverride = require('method-override');
 
 
 
-
 // configuration ===========================================
 
 // config files
@@ -16,7 +15,7 @@ var db = require('./config/db.js');
 
 var router = express.Router();
 
-var port = process.env.PORT || 3003; // set our port
+var port = process.env.PORT || 3000; // set our port
 // mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
 
 // get all data/stuff of the body (POST) parameters
@@ -35,3 +34,47 @@ app.listen(port);
 
 console.log('Magic happens on port ' + port); 			// shoutout to the user
 exports = module.exports = app; 						// expose app
+
+
+
+//just for adding the products from json url to database
+var Product     = require('./app/models/Product');
+
+
+var http = require('https');
+var options = {
+    host: 'jsonblob.com',
+    path: '/api/jsonBlob/55683150e4b03d338bd86998'
+    };
+var request = http.request(options, function (res) {
+    var data = '';
+    res.on('data', function (chunk) {
+        data += chunk;
+
+    });
+    res.on('end', function () {
+        var productsJson = JSON.parse(data);
+
+        for(i in productsJson){
+
+
+            var product = new Product();      // create a new instance of the product model
+            product.status = productsJson[i].status;  // set the product name (comes from the request)
+            product.content.media.url = productsJson[i].content.media.url;
+            product.scheduled = productsJson[i].scheduled;
+
+            //Remove the products before inserting them again
+            Product.remove({status: productsJson[i].status}, function (err){
+
+            });
+            product.save(function(err) {
+                if (err)
+                    return res.send(err);
+            });
+        }
+    });
+});
+request.on('error', function (e) {
+    console.log(e.message);
+});
+request.end();

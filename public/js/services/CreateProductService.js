@@ -1,5 +1,7 @@
 angular.module('CreateProductService', []).factory('CreateProduct', ['$http', function($http) {
 
+    //for the future is good to add a service for all the functions
+
     return {
         // call to get all nerds
         get : function() {

@@ -1,1 +1,1 @@
-angular.module('falconApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'CreateProductCtrl', 'NerdService', 'GeekCtrl', 'GeekService']);
+angular.module('falconApp', ['ngRoute', 'appRoutes', 'MainCtrl']);

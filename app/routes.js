@@ -24,7 +24,7 @@ module.exports = function(app) {
             Product.find({}, function(err, products) {
                 if (err) throw err;
 
-                // object of all the users
+                // object of all the products
                 return res.json(products);
             });
         });
