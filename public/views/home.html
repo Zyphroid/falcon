@@ -94,14 +94,22 @@
 
                         </div>
 
-                        <div class="back">
+                        <div class="back text-center">
                             <form>
                                 <!--<input type="hidden" placeholder="id" ng-model="product._id" />-->
+                                <label>Status</label>
+                                <br>
                                 <input type="text" placeholder="status" ng-model="product.status"/>
+                                <br>
+                                <label>Scheduled</label>
+                                <br>
                                 <input type="text" placeholder="scheduled" ng-model="product.scheduled"/>
+                                <br>
+                                <label>Image</label>
+                                <br>
                                 <input type="text" placeholder="image" ng-model="product.content.media.url"/>
 
-
+                                <br>
                                 <button type="submit" class="btn btn-primary" ng-click="update(product)"  ng-click="clicked=!clicked">Update</button>
                             </form>
                         </div>

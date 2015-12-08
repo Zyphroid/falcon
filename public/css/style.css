@@ -79,4 +79,11 @@ body { padding-top:30px; }
 .back {
     transform: rotateY(180deg);
 }
+
+.back input {
+    margin-bottom: 10px;
+}
+.back label:first-child {
+    margin-top:70px;
+}
 /*Flip the div END*/
